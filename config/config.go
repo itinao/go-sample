@@ -8,7 +8,10 @@ import (
 )
 
 type ConfigList struct {
-	LogFile string
+	LogFile   string
+	DbName    string
+	SQLDriver string
+	Port      int
 }
 
 var Config ConfigList
@@ -21,6 +24,9 @@ func init() {
 	}
 
 	Config = ConfigList{
-		LogFile: cfg.Section("go-sample").Key("log_file").String(),
+		LogFile:   cfg.Section("go-sample").Key("log_file").String(),
+		DbName:    cfg.Section("db").Key("name").String(),
+		SQLDriver: cfg.Section("db").Key("driver").String(),
+		Port:      cfg.Section("web").Key("port").MustInt(),
 	}
 }
