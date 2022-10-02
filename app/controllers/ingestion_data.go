@@ -1,8 +1,6 @@
 package controllers
 
 import (
-	"log"
-
 	"github.com/itinao/go-sample/app/models"
 )
 
@@ -21,9 +19,6 @@ func IngestionData() {
 	}
 
 	for i, v := range m {
-		err := models.NewTodo(minId+i, v).Create()
-		if err != nil {
-			log.Fatalln(err)
-		}
+		models.NewTodo(minId+i, v).Create()
 	}
 }

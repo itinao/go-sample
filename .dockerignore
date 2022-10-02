@@ -1,0 +1,4 @@
+.git*
+*.sql
+*.log
+go-sample
