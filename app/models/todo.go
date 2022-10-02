@@ -50,3 +50,26 @@ func GetTodo(id int) *Todo {
 	}
 	return NewTodo(id, todo.Todo)
 }
+
+func GetAllTodo(limit int) (dfTodo *DataFrameTodo, err error) {
+	tableName := tableNameTodo
+	cmd := fmt.Sprintf(`
+		SELECT id, todo FROM %s LIMIT ?`, tableName)
+	rows, err := DbConnection.Query(cmd, limit)
+	if err != nil {
+		return
+	}
+	defer rows.Close()
+
+	dfTodo = &DataFrameTodo{}
+	for rows.Next() {
+		var todo Todo
+		rows.Scan(&todo.Id, &todo.Todo)
+		dfTodo.Todos = append(dfTodo.Todos, todo)
+	}
+	err = rows.Err()
+	if err != nil {
+		return
+	}
+	return dfTodo, nil
+}
