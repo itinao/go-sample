@@ -1,3 +1,4 @@
+# TODO: ms build
 FROM golang:1.18-alpine
 
 ENV APP_ROOT=/usr/src/go-sample
