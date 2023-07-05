@@ -1,10 +1,11 @@
 ---
-name: Custom issue template
-about: Describe this issue template's purpose here.
-title: ''
+name: Custom issue template 2
+about: Describe this issue template's purpose here. 2
+title: 'test'
 labels: ''
-assignees: ''
+assignees: 'itinao'
 
 ---
 
 
+aaaa
