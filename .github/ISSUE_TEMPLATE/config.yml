@@ -3,3 +3,6 @@ contact_links:
   - name: Issue
     about: Issue template
     url: https://github.com/itinao/go-sample/issues/new?template=issue.md&projects=itinao/1&labels=enhancement
+  - name: Hoge
+    about: Hoge template
+    url: https://github.com/itinao/go-sample/issues/new?template=issue.md&projects=itinao/1&labels=enhancement
