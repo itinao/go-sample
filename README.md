@@ -1,2 +1,4 @@
 # go-sample
 hoge!
+!
+!
