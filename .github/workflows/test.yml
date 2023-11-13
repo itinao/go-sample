@@ -1,0 +1,14 @@
+name: testtest!
+run-name: testtest run!
+on:
+  issues:
+    types: [opened]
+jobs:
+  get_commit_count:
+    runs-on: ubuntu-latest
+    outputs:
+      COMMIT_COUNT: ${{ steps.get_commits_count.outputs.COMMIT_COUNT }}
+    steps:
+      - name: hoge
+        id: hoge
+        run: echo "hogeee"
