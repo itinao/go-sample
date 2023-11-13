@@ -1,14 +1,21 @@
-name: testtest!
-run-name: testtest run!
+name: Label issues
 on:
   issues:
-    types: [opened]
+    types:
+      - reopened
+      - opened
 jobs:
-  get_commit_count:
+  label_issues:
     runs-on: ubuntu-latest
-    outputs:
-      COMMIT_COUNT: ${{ steps.get_commits_count.outputs.COMMIT_COUNT }}
+    permissions:
+      issues: write
     steps:
-      - name: hoge
-        id: hoge
-        run: echo "hogeee"
+      - uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.issues.addLabels({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: ["triage"]
+            })
