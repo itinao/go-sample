@@ -10,7 +10,11 @@ jobs:
     permissions:
       issues: write
     steps:
+      - name: aaa
+        id: aaa
+        run: echo "{{github.actor}}"
       - uses: actions/github-script@v6
+        if: github.actor == 'app/qase-testops'
         with:
           script: |
             github.rest.issues.addLabels({
